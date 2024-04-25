@@ -35,10 +35,6 @@
     "pr-check-build-fe": "cd frontend && npm run build",
     "pr-check-build-be": "cd backend && npm run build"
   },
-  "engines": {
-    "node": "18.19.1",
-    "npm": "10.2.4"
-  },
   "devDependencies": {
     "@commitlint/cli": "17.7.1",
     "@commitlint/config-conventional": "17.7.0",
