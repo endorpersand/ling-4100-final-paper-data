@@ -1,15 +1,12 @@
-import * as Focus from "../test/focus";
 import * as CommandlineLists from "./lists";
 import Config from "../config";
 import * as AnalyticsController from "../controllers/analytics-controller";
 import * as ThemeController from "../controllers/theme-controller";
 import { clearFontPreview } from "../ui";
 import AnimatedModal, { ShowOptions } from "../utils/animated-modal";
-import * as Notifications from "../elements/notifications";
 import * as OutOfFocus from "../test/out-of-focus";
 import * as ActivePage from "../states/active-page";
 import { focusWords } from "../test/test-ui";
-import * as Loader from "../elements/loader";
 
 type CommandlineMode = "search" | "input";
 type InputModeParams = {
@@ -31,7 +28,7 @@ let inputModeParams: InputModeParams = {
   value: "",
   icon: "",
 };
-let subgroupOverride: MonkeyTypes.CommandsSubgroup | null = null;
+const subgroupOverride: MonkeyTypes.CommandsSubgroup | null = null;
 
 function removeCommandlineBackground(): void {
   $("#commandLine").addClass("noBackground");
@@ -54,66 +51,66 @@ type ShowSettings = {
 };
 
 export function show(
-  settings?: ShowSettings,
-  modalShowSettings?: ShowOptions
+  _settings?: ShowSettings,
+  _modalShowSettings?: ShowOptions
 ): void {
-  void modal.show({
-    ...modalShowSettings,
-    focusFirstInput: true,
-    beforeAnimation: async () => {
-      mouseMode = false;
-      inputValue = "";
-      activeIndex = 0;
-      mode = "search";
-      cachedSingleSubgroup = null;
-      inputModeParams = {
-        command: null,
-        placeholder: null,
-        value: null,
-        icon: null,
-      };
-      if (settings?.subgroupOverride !== undefined) {
-        if (typeof settings.subgroupOverride === "string") {
-          const exists = CommandlineLists.doesListExist(
-            settings.subgroupOverride
-          );
-          if (exists) {
-            Loader.show();
-            subgroupOverride = await CommandlineLists.getList(
-              settings.subgroupOverride as CommandlineLists.ListsObjectKeys
-            );
-            Loader.hide();
-          } else {
-            subgroupOverride = null;
-            usingSingleList = Config.singleListCommandLine === "on";
-            Notifications.add(
-              `Command list ${settings.subgroupOverride} not found`,
-              0
-            );
-          }
-        } else {
-          subgroupOverride = settings.subgroupOverride;
-        }
-        usingSingleList = false;
-      } else {
-        subgroupOverride = null;
-        usingSingleList = Config.singleListCommandLine === "on";
-      }
-      if (settings?.singleListOverride) {
-        usingSingleList = settings.singleListOverride;
-      }
-      activeCommand = null;
-      Focus.set(false);
-      CommandlineLists.setStackToDefault();
-      updateInput();
-      await filterSubgroup();
-      await showCommands();
-      await updateActiveCommand();
-      setTimeout(() => {
-        keepActiveCommandInView();
-      }, 1);
-    },
-  });
+  // void modal.show({
+  //   ...modalShowSettings,
+  //   focusFirstInput: true,
+  //   beforeAnimation: async () => {
+  //     mouseMode = false;
+  //     inputValue = "";
+  //     activeIndex = 0;
+  //     mode = "search";
+  //     cachedSingleSubgroup = null;
+  //     inputModeParams = {
+  //       command: null,
+  //       placeholder: null,
+  //       value: null,
+  //       icon: null,
+  //     };
+  //     if (settings?.subgroupOverride !== undefined) {
+  //       if (typeof settings.subgroupOverride === "string") {
+  //         const exists = CommandlineLists.doesListExist(
+  //           settings.subgroupOverride
+  //         );
+  //         if (exists) {
+  //           Loader.show();
+  //           subgroupOverride = await CommandlineLists.getList(
+  //             settings.subgroupOverride as CommandlineLists.ListsObjectKeys
+  //           );
+  //           Loader.hide();
+  //         } else {
+  //           subgroupOverride = null;
+  //           usingSingleList = Config.singleListCommandLine === "on";
+  //           Notifications.add(
+  //             `Command list ${settings.subgroupOverride} not found`,
+  //             0
+  //           );
+  //         }
+  //       } else {
+  //         subgroupOverride = settings.subgroupOverride;
+  //       }
+  //       usingSingleList = false;
+  //     } else {
+  //       subgroupOverride = null;
+  //       usingSingleList = Config.singleListCommandLine === "on";
+  //     }
+  //     if (settings?.singleListOverride) {
+  //       usingSingleList = settings.singleListOverride;
+  //     }
+  //     activeCommand = null;
+  //     Focus.set(false);
+  //     CommandlineLists.setStackToDefault();
+  //     updateInput();
+  //     await filterSubgroup();
+  //     await showCommands();
+  //     await updateActiveCommand();
+  //     setTimeout(() => {
+  //       keepActiveCommandInView();
+  //     }, 1);
+  //   },
+  // });
 }
 
 function hide(clearModalChain = false): void {
