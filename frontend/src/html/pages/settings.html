@@ -128,23 +128,6 @@
         <button data-config-value="15">rubber keys</button>
       </div>
     </div>
-    <div class="section fullWidth" data-config-name="playSoundOnError">
-      <div class="groupTitle">
-        <i class="fas fa-volume-mute"></i>
-        <span>play sound on error</span>
-      </div>
-      <div class="text">
-        Plays a short sound if you press an incorrect key or press space too
-        early.
-      </div>
-      <div class="buttons">
-        <button data-config-value="off">off</button>
-        <button data-config-value="1">damage</button>
-        <button data-config-value="2">triangle</button>
-        <button data-config-value="3">square</button>
-        <button data-config-value="4">missed punch</button>
-      </div>
-    </div>
     <div class="sectionSpacer"></div>
   </div>
 
@@ -174,72 +157,6 @@
         <span>caret style</span>
       </div>
       <div class="text">Change the style of the caret during the test.</div>
-      <div class="buttons">
-        <button data-config-value="off">off</button>
-        <button data-config-value="default">|</button>
-        <button data-config-value="block">▮</button>
-        <button data-config-value="outline">▯</button>
-        <button data-config-value="underline">_</button>
-      </div>
-    </div>
-    <div class="section" data-config-name="paceCaret">
-      <div class="groupTitle">
-        <i class="fas fa-i-cursor"></i>
-        <span>pace caret</span>
-      </div>
-      <div class="text">
-        Displays a second caret that moves at constant speed. The 'average'
-        option averages the speed of last 10 results. The 'daily' option takes
-        the highest speed of the last 24 hours.
-      </div>
-      <div class="inputs">
-        <div class="inputAndButton">
-          <input
-            type="number"
-            placeholder="wpm"
-            class="input customPaceCaretSpeed"
-            tabindex="0"
-            min="0"
-            step="1"
-            value=""
-          />
-          <button class="save no-auto-handle">
-            <i class="fas fa-save fa-fw"></i>
-          </button>
-        </div>
-        <div class="buttons">
-          <button data-config-value="off">off</button>
-          <button data-config-value="average">avg</button>
-          <button data-config-value="pb">pb</button>
-          <button data-config-value="last">last</button>
-          <button data-config-value="daily">daily</button>
-          <button data-config-value="custom">custom</button>
-        </div>
-      </div>
-    </div>
-    <div class="section" data-config-name="repeatedPace">
-      <div class="groupTitle">
-        <i class="fas fa-i-cursor"></i>
-        <span>repeated pace</span>
-      </div>
-      <div class="text">
-        When repeating a test, a pace caret will automatically be enabled for
-        one test with the speed of your previous test. It does not override the
-        pace caret if it's already enabled.
-      </div>
-      <div class="buttons">
-        <button data-config-value="false">off</button>
-        <button data-config-value="true">on</button>
-      </div>
-    </div>
-    <div class="section" data-config-name="paceCaretStyle">
-      <div class="groupTitle">
-        <i class="fas fa-i-cursor"></i>
-        <span>pace caret style</span>
-      </div>
-      <div class="text">
-        Change the style of the pace caret during the test.
-      </div>
       <div class="buttons">
         <button data-config-value="off">off</button>
         <button data-config-value="default">|</button>

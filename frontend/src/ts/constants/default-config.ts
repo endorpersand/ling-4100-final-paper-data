@@ -36,7 +36,7 @@ export default {
   "blindMode": true,
   "quickEnd": false,
   "caretStyle": "default",
-  "paceCaretStyle": "default",
+  "paceCaretStyle": "off",
   "flipTestColors": false,
   "layout": "default",
   "funbox": "none",
@@ -67,7 +67,7 @@ export default {
   "showOutOfFocusWarning": false,
   "paceCaret": "off",
   "paceCaretCustomSpeed": 100,
-  "repeatedPace": true,
+  "repeatedPace": false,
   "accountChart": [
     "on",
     "on",
