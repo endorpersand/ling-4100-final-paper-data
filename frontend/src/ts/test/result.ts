@@ -803,6 +803,7 @@ export async function update(
     $("main #result #resultReplay").addClass("hidden");
     $("main #result .loginTip").addClass("hidden");
     $("main #result #showWordHistoryButton").addClass("hidden");
+    $("main #result #exportWordHistoryButton").addClass("hidden");
     $("main #result #watchReplayButton").addClass("hidden");
     $("main #result #saveScreenshotButton").addClass("hidden");
 
@@ -817,6 +818,7 @@ export async function update(
       $("main #result .loginTip").removeClass("hidden");
     }
     $("main #result #showWordHistoryButton").removeClass("hidden");
+    $("main #result #exportWordHistoryButton").removeClass("hidden");
     $("main #result #watchReplayButton").removeClass("hidden");
     $("main #result #saveScreenshotButton").removeClass("hidden");
   }

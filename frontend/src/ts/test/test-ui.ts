@@ -1235,6 +1235,24 @@ async function loadWordsHistory(): Promise<boolean> {
   return true;
 }
 
+async function exportResultToClipboard(): Promise<boolean> {
+  const data = {
+    words: [] as { input?: string, corrected?: string, word: string }[]
+  };
+
+  for (let i = 0; i < TestInput.input.history.length; i++) {
+    const input = TestInput.input.getHistory(i);
+    const corrected = TestInput.corrected.getHistory(i);
+    const word = TestWords.words.get(i);
+
+    data.words.push({ input, corrected, word });
+  }
+
+  const json = JSON.stringify(data);
+  await copyToClipboard(json);
+  return true;
+}
+
 export function toggleResultWords(noAnimation = false): void {
   if (resultVisible) {
     ResultWordHighlight.updateToggleWordsHistoryTime();
@@ -1508,6 +1526,9 @@ $("#wordsInput").on("focusout", () => {
 
 $(".pageTest").on("click", "#showWordHistoryButton", () => {
   toggleResultWords();
+});
+$(".pageTest").on("click", "#exportWordHistoryButton", () => {
+  void exportResultToClipboard();
 });
 
 $("#wordsWrapper").on("click", () => {
