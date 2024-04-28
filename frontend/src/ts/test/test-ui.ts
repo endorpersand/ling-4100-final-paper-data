@@ -1455,7 +1455,28 @@ $(".pageTest #copyMissedWordsListButton").on("click", async () => {
 
 async function copyToClipboard(content: string): Promise<void> {
   try {
-    await navigator.clipboard.writeText(content);
+    if ("clipboard" in navigator) {
+      await navigator.clipboard.writeText(content);
+    } else {
+      // HACK: mobile server isn't technically secure, so we can't access navigator.clipboard
+  
+      // Use the 'out of viewport hidden text area' trick
+      const textArea = document.createElement("textarea");
+      textArea.value = content;
+          
+      // Move textarea out of the viewport so it's not visible
+      textArea.style.position = "absolute";
+      textArea.style.left = "-999999px";
+          
+      document.body.prepend(textArea);
+      textArea.select();
+  
+      try {
+          document.execCommand('copy');
+      } finally {
+          textArea.remove();
+      }
+    }
     Notifications.add("Copied to clipboard", 0, {
       duration: 2,
     });
