@@ -83,35 +83,27 @@ node_modules_bak/
 .firebaserc_copy
 serviceAccountKey*.json
 !docker/serviceAccountKey-example.json
-frontend/src/ts/constants/firebase-config.ts
-frontend/src/ts/constants/firebase-config-live.ts
+src/ts/constants/firebase-config.ts
+src/ts/constants/firebase-config-live.ts
 
 #generated files
 dist/
-frontend/public/
-backend/globalConfig.json
-backend/server.version
+public/
 vite-build/
 
 #cloudflare y
 .cloudflareKey.txt
 .cloudflareKey_copy.txt
 
-frontend/static/adtest.html
-backend/lastId.txt
-backend/log_success.txt
-backend/credentials/*.json
-backend/.env
+static/adtest.html
 
 static/adtest.html
-backend/migrationStats.txt
 
 # Madge
 dep-graph.png
 
 # TypeScript
 build/
-backend/workers
 
 #scripts
 updateContributors.js

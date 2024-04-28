@@ -12,13 +12,11 @@
     "grecaptcha": "readonly"
   },
   "ignorePatterns": [
-    "backend/__tests__/**/*",
-    "backend/jest.config.ts",
     "**/*.css",
     "**/*.scss",
-    "frontend/static/js/*",
-    "frontend/__tests__/**/*",
-    "frontend/jest.config.ts"
+    "static/js/*",
+    "__tests__/**/*",
+    "jest.config.ts"
   ],
   "extends": [
     "eslint:recommended",
@@ -53,7 +51,7 @@
     "import/resolver": {
       "typescript": {
         "alwaysTryTypes": true,
-        "project": ["frontend/tsconfig.json", "backend/tsconfig.json"]
+        "project": ["tsconfig.json"]
       },
       "node": true
     }
@@ -100,12 +98,6 @@
         "ecmaVersion": 12,
         "sourceType": "module",
         "project": "**/tsconfig.json"
-      }
-    },
-    {
-      "files": ["backend/**/*.ts"],
-      "rules": {
-        "eqeqeq": "error"
       }
     }
   ]
