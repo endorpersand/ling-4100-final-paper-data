@@ -29,12 +29,12 @@ import * as TestInput from "../test/test-input";
 import * as TestWords from "../test/test-words";
 import * as Hangul from "hangul-js";
 import * as CustomTextState from "../states/custom-text-name";
+import * as KeyboardType from "../states/keyboard";
 import * as FunboxList from "../test/funbox/funbox-list";
 import * as KeymapEvent from "../observables/keymap-event";
 import { IgnoredKeys } from "../constants/ignored-keys";
 import { ModifierKeys } from "../constants/modifier-keys";
 import { navigate } from "./route-controller";
-
 let dontInsertSpace = false;
 let correctShiftUsed = true;
 let isKoCompiling = false;
@@ -1151,6 +1151,14 @@ $(document).on("keydown", async (event) => {
 
   isBackspace = event.key === "Backspace" || event.key === "delete";
 });
+
+let keyDownTimestamp = 0;
+$(document).on("keydown", event => {
+  keyDownTimestamp = event.timeStamp;
+})
+$(document).on("keyup", event => {
+  KeyboardType.addEntry(event.timeStamp - keyDownTimestamp);
+})
 
 $("#wordsInput").on("keydown", (event) => {
   if (event.originalEvent?.repeat) {

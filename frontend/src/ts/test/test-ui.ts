@@ -25,6 +25,7 @@ import * as FunboxList from "./funbox/funbox-list";
 import { debounce } from "throttle-debounce";
 import * as ResultWordHighlight from "../elements/result-word-highlight";
 import * as ActivePage from "../states/active-page";
+import * as KeyboardType from "../states/keyboard";
 import Format from "../utils/format";
 import * as Loader from "../elements/loader";
 import { getHtmlByUserFlags } from "../controllers/user-flag-controller";
@@ -1237,6 +1238,7 @@ async function loadWordsHistory(): Promise<boolean> {
 
 async function exportResultToClipboard(): Promise<boolean> {
   const data = {
+    isKeyboardVirtual: KeyboardType.isVirtual(),
     words: [] as { input?: string, corrected?: string, word: string }[]
   };
 

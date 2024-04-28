@@ -45,6 +45,7 @@ import * as PageTransition from "../states/page-transition";
 import * as ConfigEvent from "../observables/config-event";
 import * as TimerEvent from "../observables/timer-event";
 import * as Last10Average from "../elements/last-10-average";
+import * as KeyboardType from "../states/keyboard";
 import * as Monkey from "./monkey";
 import objectHash from "object-hash";
 import * as AnalyticsController from "../controllers/analytics-controller";
@@ -100,6 +101,7 @@ export function startTest(now: number): boolean {
   TimerProgress.update();
   TestTimer.clear();
   Monkey.show();
+  KeyboardType.reset();
 
   for (const f of FunboxList.get(Config.funbox)) {
     if (f.functions?.start) f.functions.start();
