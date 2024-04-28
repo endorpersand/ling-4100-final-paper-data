@@ -10,18 +10,18 @@ import * as CookiesModal from "./modals/cookies";
 import * as PSA from "./elements/psa";
 import * as ConnectionState from "./states/connection";
 import * as FunboxList from "./test/funbox/funbox-list";
-//@ts-expect-error
-import Konami from "konami";
+// // @ts-expect-error
+// import Konami from "konami";
 import { log } from "./controllers/analytics-controller";
-import { envConfig } from "./constants/env-config";
+// import { envConfig } from "./constants/env-config";
 import * as ServerConfiguration from "./ape/server-configuration";
 import * as Skeleton from "./utils/skeleton";
 
 if (Misc.isDevEnvironment()) {
   $("footer .currentVersion .text").text("localhost");
-  $("body").prepend(
-    `<a class='button configureAPI' href='${envConfig.backendUrl}/configure/' target='_blank' aria-label="Configure API" data-balloon-pos="right"><i class="fas fa-fw fa-server"></i></a>`
-  );
+  // $("body").prepend(
+  //   `<a class='button configureAPI' href='${envConfig.backendUrl}/configure/' target='_blank' aria-label="Configure API" data-balloon-pos="right"><i class="fas fa-fw fa-server"></i></a>`
+  // );
 } else {
   JSONData.getLatestReleaseFromGitHub()
     .then((v) => {
@@ -47,20 +47,6 @@ $(document).ready(() => {
   $("body").css("transition", "background .25s, transform .05s");
   if (Config.quickRestart !== "off") {
     $("#restartTestButton").addClass("hidden");
-  }
-  const merchBannerClosed =
-    window.localStorage.getItem("merchbannerclosed") === "true";
-  if (!merchBannerClosed) {
-    Notifications.addBanner(
-      `Check out our merchandise, available at <a target="_blank" rel="noopener" href="https://monkeytype.store/">monkeytype.store</a>`,
-      1,
-      "./images/merch2.png",
-      false,
-      () => {
-        window.localStorage.setItem("merchbannerclosed", "true");
-      },
-      true
-    );
   }
 
   // const plushieBannerClosed2 =
@@ -105,9 +91,9 @@ $(document).ready(() => {
   }
   MonkeyPower.init();
 
-  new Konami("https://keymash.io/");
+  // new Konami("https://keymash.io/");
 
-  if (Misc.isDevEnvironment()) {
+  if (Misc.isDevEnvironment() && "serviceWorker" in navigator) {
     void navigator.serviceWorker
       .getRegistrations()
       .then(function (registrations) {
