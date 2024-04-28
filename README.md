@@ -12,7 +12,7 @@ This forked version of `monkeytype` deletes all settings irrelevant to the data 
 
 To run the forked website (instructions for macOS/Linux, but Windows will be similar):
 
-1. `cd site`
+1. `cd site/frontend`
 2. `npm install`
 3. `npm run dev-fe`
 
