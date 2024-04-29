@@ -99,7 +99,7 @@ label_map = {
     } for i, (name, val) in enumerate(typo_checker.EditType.__members__.items())
 }
 ## proportion of typos:
-fig, axes = plt.subplots(len(typos))
+fig, axes = plt.subplots(1, len(typos))
 for ((name, data), ax) in zip(typos.items(), axes):
     ax.pie(data.values(), labels=[label_map[k]["label"] for k in data.keys()], autopct='%1.1f%%', colors=[label_map[k]["color"] for k in data.keys()])
     ax.set_title(f"{capitalize(name)}")
@@ -122,8 +122,8 @@ for device, ctrs in typos.items():
     multiplier += 1
 
 # Add some text for labels, title and custom x-axis tick labels, etc.
-ax.set_ylabel('Length (mm)')
-ax.set_title('Typo occurrences by device')
+ax.set_ylabel('Number of typos')
+ax.set_title('Number of typo occurrences by device')
 ax.set_xticks(x + (n_bars - 1) * width / 2, [label_map[k]["label"] for k in typo_checker.EditType.__members__.values()])
 ax.legend(loc='upper right', ncols=3)
 
