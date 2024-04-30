@@ -4,6 +4,10 @@ This is a repository for the data collection & processing steps of my term paper
 
 This repository consists of 3 components: `data` (collected data), `processing` (data processing), `site` (data collection).
 
+## Requirements
+
+This project requires Node and Python.
+
 ## Collecting Data
 
 To collect data on typographical errors, this repository uses a fork of the monkeytypegame/monkeytype.
@@ -20,7 +24,7 @@ To allow a mobile device on the same network to access this deployed site, creat
 
 ## Processing Data
 
-The data is processed (identifying typos and creating figures) with Python. Install Python, then:
+The data is processed (identifying typos and creating figures) with Python. To run the processing script:
 
 1. `pip install -r processing/requirements.txt`
-2. `python3 main.py`
+2. `python3 processing/main.py`
