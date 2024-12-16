@@ -47,7 +47,7 @@
     "eslint-plugin-require-path-exists": "1.1.9",
     "gulp": "4.0.2",
     "gulp-eslint-new": "1.9.1",
-    "happy-dom": "13.4.1",
+    "happy-dom": "15.11.7",
     "madge": "6.1.0",
     "normalize.css": "8.0.1",
     "postcss": "8.4.27",
